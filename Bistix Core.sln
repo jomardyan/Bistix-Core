@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bistix Core", "Bistix Core\Bistix Core.csproj", "{ADC196ED-0BF1-4AAE-979E-459EB5DADF7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADC196ED-0BF1-4AAE-979E-459EB5DADF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC196ED-0BF1-4AAE-979E-459EB5DADF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC196ED-0BF1-4AAE-979E-459EB5DADF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC196ED-0BF1-4AAE-979E-459EB5DADF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81565C3B-9AD8-41A2-B080-D6A93E81857B}
+	EndGlobalSection
+EndGlobal
