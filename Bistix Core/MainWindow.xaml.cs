@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Threading;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace Bistix_Core
 {
@@ -12,14 +12,19 @@ namespace Bistix_Core
     {
         public MainWindow()
         {
-            double btcval = 0;
-            double ltcval = 0;
+            double btceurval = 0;
+            double ltceurval = 0;
+            double btcusdval = 0;
+            double ltcusdval = 0;
+
 
             InitializeComponent();
 
             #region Price-Tick 
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+
             dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
             dispatcherTimer.Start();
             #endregion
@@ -32,56 +37,33 @@ namespace Bistix_Core
             #endregion
 
             FastSellPrice pricex = new FastSellPrice();
-            pricex.GetAndSetBTCEUR(BTC_VAL);
-            pricex.GetAndSetLTCEUR(LTC_VAL);
-            
+            pricex.GetPrice(BTCEUR_VAL,"BTC", "EUR");
+            pricex.GetPrice(LTCEURVAL, "LTC", "EUR");
+            pricex.GetPrice(BTCUSD_VAL, "BTC", "USD");
+            pricex.GetPrice(LTCUSDVAL, "LTC", "USD");
 
             void dispatcherTimer_Tick(object sender, EventArgs e)
             {
                 
                 
 
-
                 FastSellPrice price = new FastSellPrice();
-                price.GetAndSetBTCEUR(BTC_VAL);
-                price.GetAndSetLTCEUR(LTC_VAL);
-                
+                price.GetPrice(BTCEUR_VAL, "BTC", "EUR");
+                price.SetArrow(BTCEURARROW, btceurval, price.BTCEURPRICE);
 
-                if (btcval > price.BTCPRICE)
-                {
-                    SolidColorBrush BTCCOLOR = new SolidColorBrush();
-                    BTCCOLOR.Color = Color.FromRgb(235, 64, 52);
-                    BTCARROW.Foreground = BTCCOLOR;
-                    BTCARROW.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowDown;
-                }
-                else if (btcval < price.BTCPRICE)
-                {
-                    SolidColorBrush BTCCOLOR = new SolidColorBrush();
-                    BTCCOLOR.Color = Color.FromRgb(52, 235, 76);
-                    BTCARROW.Foreground = BTCCOLOR;
-                    BTCARROW.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowUp;
+                price.GetPrice(LTCEURVAL, "LTC", "EUR");
+                price.SetArrow(LTCARROW, ltceurval, price.LTCEURPRICE);
 
-                }
+                price.GetPrice(BTCUSD_VAL, "BTC", "USD");
+                price.SetArrow(BTCUSDARROW, btcusdval, price.BTCUSDPRICE);
 
-                if (ltcval > price.LTCPRICE)
-                {
-                    SolidColorBrush BTCCOLOR = new SolidColorBrush();
-                    BTCCOLOR.Color = Color.FromRgb(235, 64, 52);
-                    BTCARROW.Foreground = BTCCOLOR;
-                    BTCARROW.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowDown;
-                }
-                else if (ltcval < price.LTCPRICE)
-                {
-                    SolidColorBrush BTCCOLOR = new SolidColorBrush();
-                    BTCCOLOR.Color = Color.FromRgb(52, 235, 76);
-                    BTCARROW.Foreground = BTCCOLOR;
-                    BTCARROW.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowUp;
+                price.GetPrice(LTCUSDVAL, "LTC", "USD");
+                price.SetArrow(LTCUSDARROW, ltcusdval, price.LTCUSDPRICE);
 
-                }
-
-                btcval = price.BTCPRICE;
-                ltcval = price.LTCPRICE;
-
+                btceurval = price.BTCEURPRICE;
+                ltceurval = price.LTCEURPRICE;
+                btcusdval = price.BTCUSDPRICE;
+                ltcusdval = price.LTCUSDPRICE; 
 
             }
 

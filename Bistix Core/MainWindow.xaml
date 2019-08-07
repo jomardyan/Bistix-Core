@@ -8,26 +8,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="70" Margin="10,10,0,0" Background="#FFFFD3D3">
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="85" Margin="10,10,0,0" Background="#FFFFD3D3">
             <Label Content="Symbol" Background="#FFC7C7C7" />
-            <Label Content="BTC" FontSize="18" />
-            <Label Content="LTC&#x9;" FontSize="18" />
+            <Label Content="BTC-EUR" FontSize="18" />
+            <Label Content="LTC-EUR;" FontSize="18" />
+            <Label Content="BTC-USD" FontSize="18" />
+            <Label Content="LTC-USD;" FontSize="18" />
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="115" Margin="80,10,0,0" Background="#FFFBF1FF">
-            <Label Content="EUR&#x9;" Background="#FFDEDEDE" />
-            <TextBlock TextWrapping="Wrap" x:Name="BTC_VAL" Text="0" Margin="2,4,0,0" FontSize="18" HorizontalAlignment="Left" />
-            <TextBlock TextWrapping="Wrap" x:Name="LTC_VAL" Text="0" Margin="2,11,0,0" FontSize="18" HorizontalAlignment="Left" />
+        <StackPanel HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="100" Margin="95,10,0,0" Background="#FFFBF1FF">
+            <Label Content="Value" Background="#FFDEDEDE" />
+            <TextBlock TextWrapping="Wrap" x:Name="BTCEUR_VAL" Text="0"     Margin="2,4,3,0" FontSize="18" HorizontalAlignment="Right" />
+            <TextBlock TextWrapping="Wrap" x:Name="LTCEURVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+            <TextBlock TextWrapping="Wrap" x:Name="BTCUSD_VAL" Text="0"     Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+            <TextBlock TextWrapping="Wrap" x:Name="LTCUSDVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="65" Margin="200,40,0,0" VerticalAlignment="Top" Width="100">
-            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCARROW" Margin="0,0,0,20" Foreground="#FFBBBBBB" />
-            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCARROW" Foreground="#FFBBBBBB"  />
-
+        <StackPanel HorizontalAlignment="Left" Height="369" Margin="195,10,0,0" VerticalAlignment="Top" Width="30" Background="#FFFBF1FF">
+            <Label Content="Stat" Background="#FFDEDEDE" />
+            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCEURARROW"      Margin="1,10,0,16"  Foreground="#FFBBBBBB" />
+            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCARROW"      Margin="1,2,0,16"   Foreground="#FFBBBBBB"   />
+            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCUSDARROW"   Margin="1,2,0,16"  Foreground="#FFBBBBBB" />
+            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCUSDARROW"   Margin="1,1,0,16"   Foreground="#FFBBBBBB"   />
 
         </StackPanel>
 
 
-        <TextBlock x:Name="TimeBOX" HorizontalAlignment="Left" Margin="602,384,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Height="25" Width="180" FontSize="20"/>
-        <Label Content="Local Time" HorizontalAlignment="Left" Margin="520,384,0,0" VerticalAlignment="Top" />
-        <Button Content="refresh" HorizontalAlignment="Left" Margin="390,390,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
+
+        <TextBlock x:Name="TimeBOX" HorizontalAlignment="Left" Margin="602,388,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Height="25" Width="180" FontSize="20"/>
+        <Label Content="Local Time" HorizontalAlignment="Left" Margin="500,393,0,0" VerticalAlignment="Top" Height="26" Width="66" />
+        <DataGrid HorizontalAlignment="Left" Height="369" Margin="250,10,0,0" VerticalAlignment="Top" Width="532"/>
     </Grid>
 </Window>

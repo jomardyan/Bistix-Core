@@ -6,27 +6,60 @@ using System.Text;
 using System.Collections;
 
 using System;
+using System.Windows.Media;
 
 namespace Bistix_Core
 {
     internal class FastSellPrice
     {
-        public double BTCPRICE;
-        public double LTCPRICE;
-        
-        
+        //EUR
+        public double BTCEURPRICE;
+        public double LTCEURPRICE;
+        //USD
+        public double BTCUSDPRICE;
+        public double LTCUSDPRICE;
 
-        public void  GetAndSetBTCEUR(TextBlock textblock)
+
+
+        public void  GetPrice(TextBlock textblock, string crypto, string currency)
 
         {
             
             try
             {
-                string jsondata = new WebClient().DownloadString("https://api.coinbase.com/v2/prices/BTC-EUR/sell");
-                RootObject data = JsonConvert.DeserializeObject<RootObject>(jsondata);
-                textblock.Text = data.data.amount;
-                BTCPRICE = double.Parse(data.data.amount);
+                string jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/prices/{crypto}-{currency}/sell");
+                CoinBaseMainData data = JsonConvert.DeserializeObject<CoinBaseMainData>(jsondata);
 
+                if (currency == "USD")
+                {
+                    textblock.Text = data.data.amount + " $";
+
+                }
+                else if (currency == "EUR")
+                {
+                    textblock.Text = data.data.amount + " €";
+                }
+
+
+                //Set Price Property
+
+                if (crypto == "BTC" & currency =="EUR" )
+                {
+                    BTCEURPRICE = double.Parse(data.data.amount);
+                }
+                else if (crypto == "LTC" & currency == "EUR")
+                {
+                    LTCEURPRICE = double.Parse(data.data.amount);
+
+                }
+                else if (crypto == "BTC" & currency == "USD")
+                {
+                    BTCUSDPRICE = double.Parse(data.data.amount);
+                }
+                else if (crypto == "LTC" & currency == "USD")
+                {
+                    LTCUSDPRICE = double.Parse(data.data.amount);
+                }
 
 
             }
@@ -39,38 +72,38 @@ namespace Bistix_Core
             
         }
 
-        public void  GetAndSetLTCEUR(TextBlock textblock)
 
+        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, double LastPrice, double NewPrice)
         {
-            try
+            if (LastPrice > NewPrice)
             {
-                string jsondata = new WebClient().DownloadString("https://api.coinbase.com/v2/prices/LTC-EUR/sell");
-                RootObject data = JsonConvert.DeserializeObject<RootObject>(jsondata);
-                textblock.Text =data.data.amount;
-                LTCPRICE = double.Parse(data.data.amount);
-
+                SolidColorBrush BTCCOLOR = new SolidColorBrush();
+                BTCCOLOR.Color = Color.FromRgb(235, 64, 52);
+                icon.Foreground = BTCCOLOR;
+                icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowDown;
             }
-            catch (System.Exception e)
+            else if (LastPrice < NewPrice)
             {
-                MessageBox.Show(e.Message);
+                SolidColorBrush BTCCOLOR = new SolidColorBrush();
+                BTCCOLOR.Color = Color.FromRgb(52, 235, 76);
+                icon.Foreground = BTCCOLOR;
+                icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowUp;
             }
 
-         
+
         }
-
-
 
     }
 
-    public class Data1
+    public class CoinBaseData
     {
         public string @base { get; set; }
         public string currency { get; set; }
         public string amount { get; set; }
     }
 
-    public class RootObject
+    public class CoinBaseMainData
     {
-        public Data1 data { get; set; }
+        public CoinBaseData data { get; set; }
     }
 }
