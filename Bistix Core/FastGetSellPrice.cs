@@ -10,7 +10,7 @@ using System.Windows.Media;
 
 namespace Bistix_Core
 {
-    internal class FastSellPrice
+    internal class FastGetSellPrice
     {
         //EUR
         public double BTCEURPRICE;

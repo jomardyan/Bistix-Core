@@ -36,7 +36,7 @@ namespace Bistix_Core
             TimeTimer.Start();
             #endregion
 
-            FastSellPrice pricex = new FastSellPrice();
+            FastGetSellPrice pricex = new FastGetSellPrice();
             pricex.GetPrice(BTCEUR_VAL,"BTC", "EUR");
             pricex.GetPrice(LTCEURVAL, "LTC", "EUR");
             pricex.GetPrice(BTCUSD_VAL, "BTC", "USD");
@@ -44,22 +44,21 @@ namespace Bistix_Core
 
             void dispatcherTimer_Tick(object sender, EventArgs e)
             {
-                
-                
-
-                FastSellPrice price = new FastSellPrice();
+               
+                FastGetSellPrice price = new FastGetSellPrice();
+                //
                 price.GetPrice(BTCEUR_VAL, "BTC", "EUR");
                 price.SetArrow(BTCEURARROW, btceurval, price.BTCEURPRICE);
-
+                //
                 price.GetPrice(LTCEURVAL, "LTC", "EUR");
                 price.SetArrow(LTCARROW, ltceurval, price.LTCEURPRICE);
-
+                //
                 price.GetPrice(BTCUSD_VAL, "BTC", "USD");
                 price.SetArrow(BTCUSDARROW, btcusdval, price.BTCUSDPRICE);
-
+                //
                 price.GetPrice(LTCUSDVAL, "LTC", "USD");
                 price.SetArrow(LTCUSDARROW, ltcusdval, price.LTCUSDPRICE);
-
+                //
                 btceurval = price.BTCEURPRICE;
                 ltceurval = price.LTCEURPRICE;
                 btcusdval = price.BTCUSDPRICE;

@@ -159,7 +159,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FastSellPrice.cs" />
+    <Compile Include="FastGetSellPrice.cs" />
     <Compile Include="Rates.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
