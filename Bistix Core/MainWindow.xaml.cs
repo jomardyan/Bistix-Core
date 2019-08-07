@@ -22,7 +22,9 @@ namespace Bistix_Core
             {
                 // lblSeconds.Content = DateTime.Now.Second;
                 FastSellPrice price = new FastSellPrice();
-                price.GetEURBTC(BTC_VAL);
+                price.GetAndSetBTCEUR(BTC_VAL);
+                price.GetAndSetLTCEUR(LTC_VAL);
+
             }
         }
 
