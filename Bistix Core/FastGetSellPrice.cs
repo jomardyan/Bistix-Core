@@ -77,16 +77,16 @@ namespace Bistix_Core
         {
             if (LastPrice > NewPrice)
             {
-                SolidColorBrush BTCCOLOR = new SolidColorBrush();
-                BTCCOLOR.Color = Color.FromRgb(235, 64, 52);
-                icon.Foreground = BTCCOLOR;
+                SolidColorBrush ColorBrush = new SolidColorBrush();
+                ColorBrush.Color = Color.FromRgb(235, 64, 52);
+                icon.Foreground = ColorBrush;
                 icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowDown;
             }
             else if (LastPrice < NewPrice)
             {
-                SolidColorBrush BTCCOLOR = new SolidColorBrush();
-                BTCCOLOR.Color = Color.FromRgb(52, 235, 76);
-                icon.Foreground = BTCCOLOR;
+                SolidColorBrush ColorBrush = new SolidColorBrush();
+                ColorBrush.Color = Color.FromRgb(52, 235, 76);
+                icon.Foreground = ColorBrush;
                 icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowUp;
             }
 
