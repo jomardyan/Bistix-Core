@@ -11,8 +11,8 @@ namespace Bistix_Core
 {
     internal class FastSellPrice
     {
-        public double? BTCPRICE;
-        public double? LTCPRICE;
+        public double BTCPRICE;
+        public double LTCPRICE;
         
         
 
