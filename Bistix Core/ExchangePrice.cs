@@ -84,30 +84,36 @@ namespace Bistix_Core
         public void GetPrice(TextBlock textblock, string crypto, string currency)
 
         {
-            string jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/exchange-rates?currency={crypto}");
-
-            btcrate data = JsonConvert.DeserializeObject<btcrate>(jsondata);
-
-            if (currency == "USD")
+            try
             {
-                textblock.Text = Math.Round(data.data.rates.USD, 2) + " $";
+                string jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/exchange-rates?currency={crypto}");
+                btcrate data = JsonConvert.DeserializeObject<btcrate>(jsondata);
+
+                if (currency == "USD")
+                {
+                    textblock.Text = Math.Round(data.data.rates.USD, 2) + " $";
+                }
+                else if (currency == "EUR")
+                {
+                    textblock.Text = Math.Round(data.data.rates.EUR, 2) + " €";
+                }
+
+                //Set Price Property
+
+                if (crypto == "LTC")
+                {
+                    LTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
+                    LTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
+                }
+                else if (true)
+                {
+                    BTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
+                    BTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
+                }
             }
-            else if (currency == "EUR")
+            catch (Exception e)
             {
-                textblock.Text = Math.Round(data.data.rates.EUR, 2) + " €";
-            }
-
-            //Set Price Property
-
-            if (crypto == "LTC")
-            {
-                LTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
-                LTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
-            }
-            else if (true)
-            {
-                BTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
-                BTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
+                MessageBox.Show(e.ToString());
             }
         }
 

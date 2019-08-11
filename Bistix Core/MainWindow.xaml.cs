@@ -27,34 +27,14 @@ namespace Bistix_Core
         {
             InitializeComponent();
 
-            #region Time-Tick
-
-            DispatcherTimer TimeTimer = new System.Windows.Threading.DispatcherTimer();
-            TimeTimer.Tick += new EventHandler(TimeTimer_Tick);
-            TimeTimer.Interval = new TimeSpan(0, 0, 1);
-            TimeTimer.Start();
-
-            #endregion Time-Tick
-
-            Dispatcher.BeginInvoke(
-            new ThreadStart(() => initprice()));
-
             void TimeTimer_Tick(object sender, EventArgs e)
             {
                 TimeBOX.Text = DateTime.Now.ToLongTimeString();
             }
-        }
-
-        /// <summary>
-        /// Start initialization of MainWindows Prices
-        /// </summary>
-        private void initprice()
-        {
-            ExchangePrice exchange = new ExchangePrice();
-            exchange.GetPrice(BTCEUR_VAL, "BTC", "EUR");
-            exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
-            exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
-            exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
+            DispatcherTimer TimeTimer = new System.Windows.Threading.DispatcherTimer();
+            TimeTimer.Tick += new EventHandler(TimeTimer_Tick);
+            TimeTimer.Interval = new TimeSpan(0, 0, 1);
+            TimeTimer.Start();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -118,6 +98,23 @@ namespace Bistix_Core
             {
                 InitRefresh(RefreshProgress, GetSliderValue());
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            initprice();
+        }
+
+        /// <summary>
+        /// Start initialization of MainWindows Prices
+        /// </summary>
+        private void initprice()
+        {
+            ExchangePrice exchange = new ExchangePrice();
+            exchange.GetPrice(BTCEUR_VAL, "BTC", "EUR");
+            exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
+            exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
+            exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
         }
     }
 }
