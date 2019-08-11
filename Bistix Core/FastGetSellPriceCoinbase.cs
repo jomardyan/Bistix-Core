@@ -24,6 +24,7 @@ namespace Bistix_Core
             string className = MethodBase.GetCurrentMethod().DeclaringType.Name;
 
             string jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/prices/{crypto}-{currency}/sell");
+
             CoinBaseMainData data = JsonConvert.DeserializeObject<CoinBaseMainData>(jsondata);
 
             if (currency == "USD")
@@ -55,7 +56,7 @@ namespace Bistix_Core
             }
         }
 
-        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, double LastPrice, double NewPrice)
+        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, double LastPrice, double NewPrice, out double tbtext)
         {
             if (LastPrice > NewPrice)
             {
@@ -71,6 +72,7 @@ namespace Bistix_Core
                 icon.Foreground = ColorBrush;
                 icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowUp;
             }
+            tbtext = NewPrice;
         }
     }
 

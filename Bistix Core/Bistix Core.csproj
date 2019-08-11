@@ -72,7 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PriceManager.cs" />
+    <Compile Include="ExchangePrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
@@ -15,6 +16,12 @@ namespace Bistix_Core
         private double ltceurval = 0;
         private double btcusdval = 0;
         private double ltcusdval = 0;
+        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
+        public int GetSliderValue()
+        {
+            return (int)IntervalSlider.Value;
+        }
 
         public MainWindow()
         {
@@ -31,10 +38,11 @@ namespace Bistix_Core
 
             FastGetSellPriceCoinbase pricex = new FastGetSellPriceCoinbase();
             Task[] task = new Task[1];
-            pricex.GetPrice(BTCEUR_VAL, "BTC", "EUR");
-            pricex.GetPrice(LTCEURVAL, "LTC", "EUR");
-            pricex.GetPrice(BTCUSD_VAL, "BTC", "USD");
-            pricex.GetPrice(LTCUSDVAL, "LTC", "USD");
+            ExchangePrice exchange = new ExchangePrice();
+            exchange.GetPrice(BTCEUR_VAL, "BTC", "EUR");
+            exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
+            exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
+            exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
 
             void TimeTimer_Tick(object sender, EventArgs e)
             {
@@ -50,9 +58,9 @@ namespace Bistix_Core
         {
             #region Price-Tick
 
-            DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            InitRefresh(RefreshProgress, GetSliderValue());
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 2);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, GetSliderValue());
             dispatcherTimer.Start();
 
             #endregion Price-Tick
@@ -60,20 +68,49 @@ namespace Bistix_Core
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            FastGetSellPriceCoinbase price = new FastGetSellPriceCoinbase();
-            price.GetPrice(BTCEUR_VAL, "BTC", "EUR");
-            price.SetArrow(BTCEURARROW, btceurval, price.BTCEURPRICE);
-            price.GetPrice(LTCEURVAL, "LTC", "EUR");
-            price.SetArrow(LTCARROW, ltceurval, price.LTCEURPRICE);
-            price.GetPrice(BTCUSD_VAL, "BTC", "USD");
-            price.SetArrow(BTCUSDARROW, btcusdval, price.BTCUSDPRICE);
-            price.GetPrice(LTCUSDVAL, "LTC", "USD");
-            price.SetArrow(LTCUSDARROW, ltcusdval, price.LTCUSDPRICE);
+            if ((bool)TagleRefreshData.IsChecked)
+            {
+                InitRefresh(RefreshProgress, GetSliderValue());
+            }
+            ExchangePrice exchangePrice = new ExchangePrice();
+            //BTC > EUR
+            exchangePrice.GetPrice(BTCEUR_VAL, "BTC", "EUR");
+            exchangePrice.SetArrow(BTCEURARROW, btceurval, exchangePrice.BTCEURPRICE, out btceurval);
+            //LTC > EUR
+            exchangePrice.GetPrice(LTCEURVAL, "LTC", "EUR");
+            exchangePrice.SetArrow(LTCARROW, ltceurval, exchangePrice.LTCEURPRICE, out ltceurval);
+            //BTC > USD
+            exchangePrice.GetPrice(BTCUSD_VAL, "BTC", "USD");
+            exchangePrice.SetArrow(BTCUSDARROW, btcusdval, exchangePrice.BTCUSDPRICE, out btcusdval);
+            // LTC > USD
+            exchangePrice.GetPrice(LTCUSDVAL, "LTC", "USD");
+            exchangePrice.SetArrow(LTCUSDARROW, ltcusdval, exchangePrice.LTCUSDPRICE, out ltcusdval);
+        }
 
-            btceurval = price.BTCEURPRICE;
-            ltceurval = price.LTCEURPRICE;
-            btcusdval = price.BTCUSDPRICE;
-            ltcusdval = price.LTCUSDPRICE;
+        // Call this method from the constructor of the form.
+        private void InitRefresh(ProgressBar progressBar, int SliderValue)
+        {
+            if (progressBar.IsInitialized == true)
+            {
+                progressBar.BeginAnimation(ProgressBar.ValueProperty, null);
+                Duration duration = new Duration(TimeSpan.FromSeconds(SliderValue));
+                DoubleAnimation doubleanimation = new DoubleAnimation(100.0, duration);
+                progressBar.BeginAnimation(ProgressBar.ValueProperty, doubleanimation);
+            }
+        }
+
+        private void IntervalSlider_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+        {
+            dispatcherTimer.Interval = new TimeSpan(0, 0, GetSliderValue());
+        }
+
+        private void IntervalSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            dispatcherTimer.Interval = new TimeSpan(0, 0, GetSliderValue());
+            if (RefreshProgress != null & (bool)TagleRefreshData.IsChecked)
+            {
+                InitRefresh(RefreshProgress, GetSliderValue());
+            }
         }
     }
 }

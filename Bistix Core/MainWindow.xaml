@@ -15,67 +15,88 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="800" MinHeight="450">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="365*"></RowDefinition>
+            <RowDefinition Height="24*" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="245*"></ColumnDefinition>
+            <ColumnDefinition Width="151*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DockPanel Grid.Column="0">
-            <StackPanel  Height="366" VerticalAlignment="Top" Width="85" Background="#FFFFD3D3" HorizontalAlignment="Left">
-                <Label Content="Symbol" Background="#FFC7C7C7" />
-                <Label Content="BTC-EUR" FontSize="17" />
-                <Label Content="LTC-EUR" FontSize="17" />
-                <Label Content="BTC-USD" FontSize="17" />
-                <Label Content="LTC-USD" FontSize="17" />
-            </StackPanel>
-            <StackPanel  Height="366" VerticalAlignment="Top" Width="100" Margin="0" Background="#FFFBF1FF" HorizontalAlignment="Left">
-                <Label Content="Value" Background="#FFDEDEDE" />
-                <TextBlock TextWrapping="Wrap" x:Name="BTCEUR_VAL" Text="0"     Margin="2,4,3,0" FontSize="18" HorizontalAlignment="Right" />
-                <TextBlock TextWrapping="Wrap" x:Name="LTCEURVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
-                <TextBlock TextWrapping="Wrap" x:Name="BTCUSD_VAL" Text="0"     Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
-                <TextBlock TextWrapping="Wrap" x:Name="LTCUSDVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Height="366"  VerticalAlignment="Top" Width="35" Background="#FFFBF1FF">
-                <Label Content="Stat" Background="#FFDEDEDE" />
-                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCEURARROW"      Margin="1,5,0,16"  Foreground="#FFBBBBBB" />
-                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCARROW"      Margin="1,2,0,14"   Foreground="#FFBBBBBB" />
-                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCUSDARROW"   Margin="1,2,0,13"  Foreground="#FFBBBBBB" />
-                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCUSDARROW"   Margin="1,1,0,12"   Foreground="#FFBBBBBB" />
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Label Content="Local Time" Style="{DynamicResource MaterialDesignLabel}" HorizontalAlignment="Left" Height="26" Width="85" VerticalAlignment="Bottom" />
-                <TextBlock x:Name="TimeBOX" HorizontalAlignment="Left" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Height="25" Width="135" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
-            </StackPanel>
-                   </DockPanel>
-
-        <GroupBox Header="Options&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Height="355"  VerticalAlignment="Top" Width="312">
-            <Grid>
-                <StackPanel  Orientation="Horizontal" Height="auto"  Width="auto" VerticalAlignment="Top">
-                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" TextWrapping="Wrap" Text="Refresh data every 2 second" Width="205" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,6,0,6" />
-                    <ToggleButton x:Name="TagleRefreshData"
-                Style="{StaticResource MaterialDesignSwitchToggleButton}"
-                ToolTip="Default ToggleButton Style" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="TagleRefreshData_Checked" Margin="0,5,0,7" />
-
-                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" x:Name="RefreshProgress" Margin="0,5">
-                        <ProgressBar.Triggers>
-                            <EventTrigger RoutedEvent="UIElement.MouseWheel">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                    Storyboard.TargetName="RefreshProgress"
-                                    Storyboard.TargetProperty="Value"
-                                    From="0" To="100" Duration="0:0:2" />
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ProgressBar.Triggers>
-                    </ProgressBar>
-                </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,1" Orientation="Horizontal">
+            <GroupBox  Header="Symbol" Height="195" VerticalAlignment="Top" Width="auto" Background="#FFFFD3D3" HorizontalAlignment="Left">
                 <StackPanel>
+                    <Label Content="BTC-EUR" FontSize="17" />
+                    <Label Content="LTC-EUR" FontSize="17" />
+                    <Label Content="BTC-USD" FontSize="17" />
+                    <Label Content="LTC-USD" FontSize="17" />
                 </StackPanel>
-            </Grid>
-        </GroupBox>
+            </GroupBox>
+            <GroupBox Header="Price" Height="195" VerticalAlignment="Top" Width="135" Margin="0" Background="#FFFBF1FF" HorizontalAlignment="Left">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" x:Name="BTCEUR_VAL" Text="0"     Margin="2,4,3,0" FontSize="18" HorizontalAlignment="Right" />
+                    <TextBlock TextWrapping="Wrap" x:Name="LTCEURVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+                    <TextBlock TextWrapping="Wrap" x:Name="BTCUSD_VAL" Text="0"     Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+                    <TextBlock TextWrapping="Wrap" x:Name="LTCUSDVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Stat" HorizontalAlignment="Left" Height="195"  VerticalAlignment="Top" Background="#FFFBF1FF" Padding="9">
+                <StackPanel>
+                    <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCEURARROW"      Margin="1,5,0,16"  Foreground="#FFBBBBBB" />
+                    <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCARROW"      Margin="1,2,0,14"   Foreground="#FFBBBBBB" />
+                    <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCUSDARROW"   Margin="1,2,0,13"  Foreground="#FFBBBBBB" />
+                    <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCUSDARROW"   Margin="1,1,0,13"   Foreground="#FFBBBBBB" />
+                </StackPanel>
+            </GroupBox>
+
+            <StackPanel Width="210">
+                <GroupBox Header="Options"    HorizontalAlignment="Right" VerticalAlignment="Top" Height="195">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="8*" />
+                            <RowDefinition Height="15*" />
+                            <RowDefinition Height="51" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Height="30"  Width="202" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,-10,0">
+                            <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" TextWrapping="Wrap" Text="Refresh data " Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ToggleButton x:Name="TagleRefreshData" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Turn ON or OFF" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="TagleRefreshData_Checked" Margin="0,5,0,7" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Height="56" Width="193" HorizontalAlignment="Left" Margin="0,0,-1,0">
+                            <TextBlock Text="Select Refresh Interval by second " Margin="0,5,0,0" />
+                            <Slider x:Name="IntervalSlider" Minimum="1" Maximum="10" Style="{StaticResource MaterialDesignDiscreteSlider}" ToolTip="Set Refresh Interval" Value="2" Width="193" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-20,0,0" ManipulationCompleted="IntervalSlider_ManipulationCompleted" ValueChanged="IntervalSlider_ValueChanged" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Margin="71,0,71,1" Width="50">
+                            <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" x:Name="RefreshProgress" Value="1" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </StackPanel>
+
+        <Menu BorderBrush="LightGray" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2" Background="White">
+
+            <MenuItem HorizontalAlignment="Left" Header="File" Height="30">
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Gear" />
+                    <TextBlock Margin="3,0,0,0">Configurations</TextBlock>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="ExitToApp" />
+                    <TextBlock Margin="3,0,0,0">Exit</TextBlock>
+                </StackPanel>
+            </MenuItem>
+        </Menu>
+        <StatusBar BorderBrush="Gray" BorderThickness="0,1,0,0" Height="24" Grid.Row="2"  Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <StatusBarItem HorizontalAlignment="Right">
+                <StackPanel  VerticalAlignment="Top" Orientation="Horizontal">
+                    <TextBlock  Text="Local Time" HorizontalAlignment="Center" Height="21" Width="auto" VerticalAlignment="Center" IsEnabled="False"  FontSize="16" />
+                    <TextBlock x:Name="TimeBOX" HorizontalAlignment="Center" TextWrapping="Wrap" Text="." VerticalAlignment="Center" Height="auto" Width="auto" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
