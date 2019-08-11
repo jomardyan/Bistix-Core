@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -36,16 +36,25 @@ namespace Bistix_Core
 
             #endregion Time-Tick
 
-            ExchangePrice exchange = new ExchangePrice();
-            exchange.GetPrice(BTCEUR_VAL, "BTC", "EUR");
-            exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
-            exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
-            exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
+            Dispatcher.BeginInvoke(
+            new ThreadStart(() => initprice()));
 
             void TimeTimer_Tick(object sender, EventArgs e)
             {
                 TimeBOX.Text = DateTime.Now.ToLongTimeString();
             }
+        }
+
+        /// <summary>
+        /// Start initialization of MainWindows Prices
+        /// </summary>
+        private void initprice()
+        {
+            ExchangePrice exchange = new ExchangePrice();
+            exchange.GetPrice(BTCEUR_VAL, "BTC", "EUR");
+            exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
+            exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
+            exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
