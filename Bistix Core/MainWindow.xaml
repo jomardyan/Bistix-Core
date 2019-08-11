@@ -6,34 +6,76 @@
         xmlns:local="clr-namespace:Bistix_Core"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="85" Margin="10,10,0,0" Background="#FFFFD3D3">
-            <Label Content="Symbol" Background="#FFC7C7C7" />
-            <Label Content="BTC-EUR" FontSize="18" />
-            <Label Content="LTC-EUR;" FontSize="18" />
-            <Label Content="BTC-USD" FontSize="18" />
-            <Label Content="LTC-USD;" FontSize="18" />
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="100" Margin="95,10,0,0" Background="#FFFBF1FF">
-            <Label Content="Value" Background="#FFDEDEDE" />
-            <TextBlock TextWrapping="Wrap" x:Name="BTCEUR_VAL" Text="0"     Margin="2,4,3,0" FontSize="18" HorizontalAlignment="Right" />
-            <TextBlock TextWrapping="Wrap" x:Name="LTCEURVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
-            <TextBlock TextWrapping="Wrap" x:Name="BTCUSD_VAL" Text="0"     Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
-            <TextBlock TextWrapping="Wrap" x:Name="LTCUSDVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="369" Margin="195,10,0,0" VerticalAlignment="Top" Width="30" Background="#FFFBF1FF">
-            <Label Content="Stat" Background="#FFDEDEDE" />
-            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCEURARROW"      Margin="1,10,0,16"  Foreground="#FFBBBBBB" />
-            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCARROW"      Margin="1,2,0,16"   Foreground="#FFBBBBBB" />
-            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCUSDARROW"   Margin="1,2,0,16"  Foreground="#FFBBBBBB" />
-            <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCUSDARROW"   Margin="1,1,0,16"   Foreground="#FFBBBBBB" />
-        </StackPanel>
+        <DockPanel Grid.Column="0">
+            <StackPanel  Height="366" VerticalAlignment="Top" Width="85" Background="#FFFFD3D3" HorizontalAlignment="Left">
+                <Label Content="Symbol" Background="#FFC7C7C7" />
+                <Label Content="BTC-EUR" FontSize="17" />
+                <Label Content="LTC-EUR" FontSize="17" />
+                <Label Content="BTC-USD" FontSize="17" />
+                <Label Content="LTC-USD" FontSize="17" />
+            </StackPanel>
+            <StackPanel  Height="366" VerticalAlignment="Top" Width="100" Margin="0" Background="#FFFBF1FF" HorizontalAlignment="Left">
+                <Label Content="Value" Background="#FFDEDEDE" />
+                <TextBlock TextWrapping="Wrap" x:Name="BTCEUR_VAL" Text="0"     Margin="2,4,3,0" FontSize="18" HorizontalAlignment="Right" />
+                <TextBlock TextWrapping="Wrap" x:Name="LTCEURVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+                <TextBlock TextWrapping="Wrap" x:Name="BTCUSD_VAL" Text="0"     Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+                <TextBlock TextWrapping="Wrap" x:Name="LTCUSDVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Height="366"  VerticalAlignment="Top" Width="35" Background="#FFFBF1FF">
+                <Label Content="Stat" Background="#FFDEDEDE" />
+                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCEURARROW"      Margin="1,5,0,16"  Foreground="#FFBBBBBB" />
+                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCARROW"      Margin="1,2,0,14"   Foreground="#FFBBBBBB" />
+                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="BTCUSDARROW"   Margin="1,2,0,13"  Foreground="#FFBBBBBB" />
+                <iconPacks:PackIconModern Kind="ArrowDownUp" x:Name="LTCUSDARROW"   Margin="1,1,0,12"   Foreground="#FFBBBBBB" />
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Label Content="Local Time" Style="{DynamicResource MaterialDesignLabel}" HorizontalAlignment="Left" Height="26" Width="85" VerticalAlignment="Bottom" />
+                <TextBlock x:Name="TimeBOX" HorizontalAlignment="Left" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Height="25" Width="135" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
+            </StackPanel>
+                   </DockPanel>
 
-        <TextBlock x:Name="TimeBOX" HorizontalAlignment="Left" Margin="330,384,0,0" TextWrapping="Wrap" Text="Time" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" />
-        <Label Content="Local Time" HorizontalAlignment="Left" Margin="250,382,0,0" VerticalAlignment="Top" Height="26" Width="66" />
-        <DataGrid HorizontalAlignment="Left" Height="369" Margin="250,10,0,0" VerticalAlignment="Top" Width="532" />
+        <GroupBox Header="Options&#xD;&#xA;" Grid.Column="1" HorizontalAlignment="Left" Height="355"  VerticalAlignment="Top" Width="312">
+            <Grid>
+                <StackPanel  Orientation="Horizontal" Height="auto"  Width="auto" VerticalAlignment="Top">
+                    <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" TextWrapping="Wrap" Text="Refresh data every 2 second" Width="205" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,6,0,6" />
+                    <ToggleButton x:Name="TagleRefreshData"
+                Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                ToolTip="Default ToggleButton Style" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="TagleRefreshData_Checked" Margin="0,5,0,7" />
+
+                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" x:Name="RefreshProgress" Margin="0,5">
+                        <ProgressBar.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseWheel">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                    Storyboard.TargetName="RefreshProgress"
+                                    Storyboard.TargetProperty="Value"
+                                    From="0" To="100" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ProgressBar.Triggers>
+                    </ProgressBar>
+                </StackPanel>
+                <StackPanel>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
