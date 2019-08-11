@@ -36,8 +36,6 @@ namespace Bistix_Core
 
             #endregion Time-Tick
 
-            FastGetSellPriceCoinbase pricex = new FastGetSellPriceCoinbase();
-            Task[] task = new Task[1];
             ExchangePrice exchange = new ExchangePrice();
             exchange.GetPrice(BTCEUR_VAL, "BTC", "EUR");
             exchange.GetPrice(LTCEURVAL, "LTC", "EUR");

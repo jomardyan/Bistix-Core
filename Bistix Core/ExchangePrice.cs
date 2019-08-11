@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -89,24 +90,24 @@ namespace Bistix_Core
 
             if (currency == "USD")
             {
-                textblock.Text = data.data.rates.USD + " $";
+                textblock.Text = Math.Round(data.data.rates.USD, 2) + " $";
             }
             else if (currency == "EUR")
             {
-                textblock.Text = data.data.rates.EUR + " €";
+                textblock.Text = Math.Round(data.data.rates.EUR, 2) + " €";
             }
 
             //Set Price Property
 
             if (crypto == "LTC")
             {
-                LTCEURPRICE = data.data.rates.EUR;
-                LTCUSDPRICE = data.data.rates.USD;
+                LTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
+                LTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
             }
             else if (true)
             {
-                BTCEURPRICE = data.data.rates.EUR;
-                BTCUSDPRICE = data.data.rates.USD;
+                BTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
+                BTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
             }
         }
 

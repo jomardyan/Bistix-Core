@@ -16,6 +16,9 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}" MinWidth="800" MinHeight="450">
+    <Window.Resources>
+        <Color x:Key="TimeColor">#FF767676</Color>
+    </Window.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -93,8 +96,16 @@
         <StatusBar BorderBrush="Gray" BorderThickness="0,1,0,0" Height="24" Grid.Row="2"  Grid.ColumnSpan="2" VerticalAlignment="Top">
             <StatusBarItem HorizontalAlignment="Right">
                 <StackPanel  VerticalAlignment="Top" Orientation="Horizontal">
-                    <TextBlock  Text="Local Time" HorizontalAlignment="Center" Height="21" Width="auto" VerticalAlignment="Center" IsEnabled="False"  FontSize="16" />
-                    <TextBlock x:Name="TimeBOX" HorizontalAlignment="Center" TextWrapping="Wrap" Text="." VerticalAlignment="Center" Height="auto" Width="auto" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}" />
+                    <TextBlock Text="Local Time:  " HorizontalAlignment="Center" Height="21" Width="auto" VerticalAlignment="Center" IsEnabled="False"  FontSize="16">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource TimeColor}" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBlock x:Name="TimeBOX" HorizontalAlignment="Center" TextWrapping="Wrap" Text="." VerticalAlignment="Center" Height="auto" Width="auto" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource TimeColor}" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>
