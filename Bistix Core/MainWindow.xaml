@@ -1,14 +1,16 @@
-﻿<Window x:Class="Bistix_Core.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bistix_Core"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Bistix_Core.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -22,13 +24,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*"></RowDefinition>
-            <RowDefinition Height="365*"></RowDefinition>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="365*"/>
             <RowDefinition Height="24*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="245*"></ColumnDefinition>
-            <ColumnDefinition Width="151*"></ColumnDefinition>
+            <ColumnDefinition Width="245*"/>
+            <ColumnDefinition Width="151*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,1" Orientation="Horizontal">
             <GroupBox  Header="Symbol" Height="195" VerticalAlignment="Top" Width="auto" Background="#FFFFD3D3" HorizontalAlignment="Left">
@@ -66,14 +68,14 @@
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0" Orientation="Horizontal" Height="30"  Width="202" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,-10,0">
                             <TextBlock Style="{StaticResource MaterialDesignSubheadingTextBlock}" TextWrapping="Wrap" Text="Refresh data " Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            <ToggleButton x:Name="TagleRefreshData" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Turn ON or OFF" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="TagleRefreshData_Checked" Margin="0,5,0,7" />
+                            <ToggleButton x:Name="TagleRefreshData" Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="Turn ON or OFF" HorizontalAlignment="Center" VerticalAlignment="Center" Unchecked="TagleRefreshData_Unchecked"  Checked="TagleRefreshData_Checked" Margin="0,5,0,7" />
                         </StackPanel>
                         <StackPanel Grid.Row="1" VerticalAlignment="Top" Orientation="Vertical" Height="56" Width="193" HorizontalAlignment="Left" Margin="0,0,-1,0">
                             <TextBlock Text="Select Refresh Interval by second " Margin="0,5,0,0" />
                             <Slider x:Name="IntervalSlider" Minimum="1" Maximum="10" Style="{StaticResource MaterialDesignDiscreteSlider}" ToolTip="Set Refresh Interval" Value="2" Width="193" Height="60" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-20,0,0" ManipulationCompleted="IntervalSlider_ManipulationCompleted" ValueChanged="IntervalSlider_ValueChanged" />
                         </StackPanel>
                         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Margin="71,0,71,1" Width="50">
-                            <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" x:Name="RefreshProgress" Value="1" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                            <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" x:Name="RefreshProgress" Value="0" HorizontalAlignment="Left" Width="50" Height="50" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                         </StackPanel>
                     </Grid>
                 </GroupBox>
@@ -85,11 +87,17 @@
             <MenuItem HorizontalAlignment="Left" Header="File" Height="30">
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Gear" />
-                    <TextBlock Margin="3,0,0,0">Configurations</TextBlock>
+                    <TextBlock Margin="3,0,0,0"><Run Text="Configurations"/></TextBlock>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ExitToApp" />
-                    <TextBlock Margin="3,0,0,0">Exit</TextBlock>
+                    <TextBlock Margin="3,0,0,0"><Run Text="Exit"/></TextBlock>
+                </StackPanel>
+            </MenuItem>
+            <MenuItem HorizontalAlignment="Left" Header="About" Height="30">
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Gear" />
+                    <TextBlock Margin="3,0,0,0"><Run Text="Configurations"/></TextBlock>
                 </StackPanel>
             </MenuItem>
         </Menu>

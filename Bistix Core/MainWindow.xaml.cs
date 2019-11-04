@@ -12,10 +12,10 @@ namespace Bistix_Core
     /// </summary>
     public partial class MainWindow : Window
     {
-        private double btceurval = 0;
-        private double ltceurval = 0;
-        private double btcusdval = 0;
-        private double ltcusdval = 0;
+        private decimal btceurval = 0;
+        private decimal ltceurval = 0;
+        private decimal btcusdval = 0;
+        private decimal ltcusdval = 0;
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
 
         public int GetSliderValue()
@@ -102,7 +102,16 @@ namespace Bistix_Core
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            initprice();
+
+            try
+            {
+                initprice();
+            }
+            finally
+            {
+
+            }
+
         }
 
         /// <summary>
@@ -115,6 +124,10 @@ namespace Bistix_Core
             exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
             exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
             exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
+        }
+
+        private void TagleRefreshData_Unchecked(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

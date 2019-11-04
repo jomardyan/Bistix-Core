@@ -9,10 +9,11 @@ namespace Bistix_Core
 {
     public class ExchangePrice
     {
-        internal double BTCEURPRICE;
-        internal double LTCEURPRICE;
-        internal double BTCUSDPRICE;
-        internal double LTCUSDPRICE;
+        internal decimal  BTCEURPRICE;
+        internal decimal  LTCEURPRICE;
+        internal decimal  BTCUSDPRICE;
+        internal decimal  LTCUSDPRICE;
+        
 
         /* public string GetPriceBTC(string currency)
 
@@ -102,13 +103,13 @@ namespace Bistix_Core
 
                 if (crypto == "LTC")
                 {
-                    LTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
-                    LTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
+                    LTCEURPRICE = (decimal)Math.Round(data.data.rates.EUR, 2);
+                    LTCUSDPRICE = (decimal)Math.Round(data.data.rates.USD, 2);
                 }
                 else if (true)
                 {
-                    BTCEURPRICE = Math.Round(data.data.rates.EUR, 2);
-                    BTCUSDPRICE = Math.Round(data.data.rates.USD, 2);
+                    BTCEURPRICE = (decimal)Math.Round(data.data.rates.EUR, 2);
+                    BTCUSDPRICE = (decimal)Math.Round(data.data.rates.USD, 2);
                 }
             }
             catch (Exception e)
@@ -117,7 +118,7 @@ namespace Bistix_Core
             }
         }
 
-        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, double LastPrice, double NewPrice, out double tbtext)
+        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, decimal LastPrice, decimal NewPrice, out decimal tbtext)
         {
             if (LastPrice > NewPrice)
             {
