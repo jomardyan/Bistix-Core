@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bistix_Core
 {
-    class OrderData
+
+    class OrderData : IorderData
     {
+        public void Sync() { }
+        public bool IsSynced { get; internal set; }
+
+
     }
 }
