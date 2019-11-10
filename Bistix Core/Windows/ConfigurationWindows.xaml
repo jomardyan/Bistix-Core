@@ -11,7 +11,7 @@
             <GroupBox  Header="Select order data sources">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <CheckBox IsChecked="True" x:Name="CbCoinbase"  Content="Coinbase"  FontSize="18"/>
+                    <CheckBox x:Name="CbCoinbase"  Content="Coinbase"  FontSize="18" IsChecked="True" />
                     <CheckBox x:Name="CbBinance"   Content="Binance"   FontSize="18"/>
                     <CheckBox x:Name="CbBittrex"   Content="Bittrex"   FontSize="18"/>
                     <CheckBox x:Name="CbLuno"      Content="Luno"      FontSize="18"/>

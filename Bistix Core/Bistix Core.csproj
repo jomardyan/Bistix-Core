@@ -39,7 +39,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +62,7 @@
     </ApplicationDefinition>
     <Compile Include="FastGetSellPriceCoinbase.cs" />
     <Compile Include="IExchange.cs" />
+    <Compile Include="NewUiEl.cs" />
     <Compile Include="Rates.cs" />
     <Compile Include="Windows\ConfigurationWindows.xaml.cs">
       <DependentUpon>ConfigurationWindows.xaml</DependentUpon>
