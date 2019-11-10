@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Bistix_Core
+namespace Bistix
 {
     /// <summary>
     /// Interaction logic for App.xaml

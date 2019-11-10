@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bistix_Core.Properties
+namespace Bistix.Properties
 {
 
 

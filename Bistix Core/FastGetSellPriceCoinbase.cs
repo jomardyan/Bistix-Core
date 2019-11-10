@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Bistix_Core
+namespace Bistix
 {
     internal class FastGetSellPriceCoinbase
     {

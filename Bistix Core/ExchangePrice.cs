@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Bistix_Core
+namespace Bistix
 {
     public class ExchangePrice
     {

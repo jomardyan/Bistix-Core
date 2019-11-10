@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
-namespace Bistix_Core
+namespace Bistix
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

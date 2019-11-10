@@ -1,4 +1,4 @@
-﻿namespace Bistix_Core
+﻿namespace Bistix
 {
     public class Rates
     {
