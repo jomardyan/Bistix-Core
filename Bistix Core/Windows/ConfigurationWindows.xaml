@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bistix.Windows"
         mc:Ignorable="d"
-        Title="ConfigurationWindows" Height="402" Width="309" Background="White">
+        Title="Exchanges" Height="402" Width="309" Background="White">
     <Grid>
         <DockPanel>
-            <GroupBox Header="Select order data sources">
+            <GroupBox  Header="Select order data sources">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                    <CheckBox x:Name="CB_Coinbase"  Content="Coinbase"  FontSize="18"/>
-                    <CheckBox x:Name="CB_Binance"   Content="Binance"   FontSize="18"/>
-                    <CheckBox x:Name="CB_Bittrex"   Content="Bittrex"   FontSize="18"/>
-                    <CheckBox x:Name="CB_Luno"      Content="Luno"      FontSize="18"/>
-                    <CheckBox x:Name="CB_Coinmama"  Content="Coinmama"  FontSize="18"/>
-                    <CheckBox x:Name="CB_Changelliy" Content="Changelly" FontSize="18"/>
+                    <CheckBox IsChecked="True" x:Name="CbCoinbase"  Content="Coinbase"  FontSize="18"/>
+                    <CheckBox x:Name="CbBinance"   Content="Binance"   FontSize="18"/>
+                    <CheckBox x:Name="CbBittrex"   Content="Bittrex"   FontSize="18"/>
+                    <CheckBox x:Name="CbLuno"      Content="Luno"      FontSize="18"/>
+                    <CheckBox x:Name="CbCoinmama"  Content="Coinmama"  FontSize="18"/>
+                    <CheckBox x:Name="CbChangelliy" Content="Changelly" FontSize="18"/>
 
                 </StackPanel>
 

@@ -9,14 +9,14 @@ namespace Bistix
     internal class FastGetSellPriceCoinbase
     {
         //EUR
-        public double BTCEURPRICE;
+        public double Btceurprice;
 
-        public double LTCEURPRICE;
+        public double Ltceurprice;
 
         //USD
-        public double BTCUSDPRICE;
+        public double Btcusdprice;
 
-        public double LTCUSDPRICE;
+        public double Ltcusdprice;
 
         public void GetPrice(TextBlock textblock, string crypto, string currency)
 
@@ -40,39 +40,39 @@ namespace Bistix
 
             if (crypto == "BTC" & currency == "EUR")
             {
-                BTCEURPRICE = data.Data.Amount;
+                Btceurprice = data.Data.Amount;
             }
             else if (crypto == "LTC" & currency == "EUR")
             {
-                LTCEURPRICE = data.Data.Amount;
+                Ltceurprice = data.Data.Amount;
             }
             else if (crypto == "BTC" & currency == "USD")
             {
-                BTCUSDPRICE = data.Data.Amount;
+                Btcusdprice = data.Data.Amount;
             }
             else if (crypto == "LTC" & currency == "USD")
             {
-                LTCUSDPRICE = data.Data.Amount;
+                Ltcusdprice = data.Data.Amount;
             }
         }
 
-        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, double LastPrice, double NewPrice, out double tbtext)
+        public void SetArrow(MahApps.Metro.IconPacks.PackIconModern icon, double lastPrice, double newPrice, out double tbtext)
         {
-            if (LastPrice > NewPrice)
+            if (lastPrice > newPrice)
             {
-                SolidColorBrush ColorBrush = new SolidColorBrush();
-                ColorBrush.Color = Color.FromRgb(235, 64, 52);
-                icon.Foreground = ColorBrush;
+                SolidColorBrush colorBrush = new SolidColorBrush();
+                colorBrush.Color = Color.FromRgb(235, 64, 52);
+                icon.Foreground = colorBrush;
                 icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowDown;
             }
-            else if (LastPrice < NewPrice)
+            else if (lastPrice < newPrice)
             {
-                SolidColorBrush ColorBrush = new SolidColorBrush();
-                ColorBrush.Color = Color.FromRgb(52, 235, 76);
-                icon.Foreground = ColorBrush;
+                SolidColorBrush colorBrush = new SolidColorBrush();
+                colorBrush.Color = Color.FromRgb(52, 235, 76);
+                icon.Foreground = colorBrush;
                 icon.Kind = MahApps.Metro.IconPacks.PackIconModernKind.ArrowUp;
             }
-            tbtext = NewPrice;
+            tbtext = newPrice;
         }
     }
 

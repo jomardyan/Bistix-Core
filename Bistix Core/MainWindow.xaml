@@ -24,13 +24,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="365*"/>
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="365*" />
             <RowDefinition Height="24*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="245*"/>
-            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="245*" />
+            <ColumnDefinition Width="151*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,1" Orientation="Horizontal">
             <GroupBox  Header="Symbol" Height="195" VerticalAlignment="Top" Width="auto" Background="#FFFFD3D3" HorizontalAlignment="Left">
@@ -85,19 +85,19 @@
         <Menu BorderBrush="LightGray" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2" Background="White">
 
             <MenuItem HorizontalAlignment="Left" Header="File" Height="30">
-                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <StackPanel PreviewMouseDown="UIElement_OnPreviewMouseDown" HorizontalAlignment="Left" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Gear" />
-                    <TextBlock Margin="3,0,0,0"><Run Text="Configurations"/></TextBlock>
+                    <TextBlock  Margin="3,0,0,0"><Run  Text="Configurations" /></TextBlock>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="ExitToApp" />
-                    <TextBlock Margin="3,0,0,0"><Run Text="Exit"/></TextBlock>
+                    <TextBlock Margin="3,0,0,0"><Run Text="Exit" /></TextBlock>
                 </StackPanel>
             </MenuItem>
             <MenuItem HorizontalAlignment="Left" Header="About" Height="30">
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Gear" />
-                    <TextBlock Margin="3,0,0,0"><Run Text="Configurations"/></TextBlock>
+                    <TextBlock  Margin="3,0,0,0"><Run Text="Configurations" /></TextBlock>
                 </StackPanel>
             </MenuItem>
         </Menu>

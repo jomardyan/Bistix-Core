@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ADC196ED-0BF1-4AAE-979E-459EB5DADF7B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Bistix_Core</RootNamespace>
+    <RootNamespace>Bistix</RootNamespace>
     <AssemblyName>Bistix Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
