@@ -1,0 +1,28 @@
+﻿<Window x:Class="Bistix_Core.Windows.ConfigurationWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bistix_Core.Windows"
+        mc:Ignorable="d"
+        Title="ConfigurationWindows" Height="402" Width="309" Background="White">
+    <Grid>
+        <DockPanel>
+            <GroupBox Header="Select order data sources">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <CheckBox x:Name="CB_Coinbase"  Content="Coinbase" FontSize="18"/>
+                    <CheckBox x:Name="CB_Binance"  Content="Binance" FontSize="18"/>
+                    <CheckBox x:Name="CB_Bittrex"  Content="Bittrex" FontSize="18"/>
+                    <CheckBox x:Name="CB_Luno" Content="Luno" FontSize="18"/>
+                    <CheckBox x:Name="CB_Coinmama" Content="Coinmama" FontSize="18"/>
+                    <CheckBox x:Name="CB_Changelliy" Content="Changelly" FontSize="18"/>
+
+                </StackPanel>
+
+            </GroupBox>
+            
+
+        </DockPanel>
+    </Grid>
+</Window>

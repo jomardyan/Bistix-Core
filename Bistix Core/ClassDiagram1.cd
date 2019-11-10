@@ -1,25 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Bistix_Core.FastGetSellPrice">
+  <Class Name="Bistix_Core.FastGetSellPriceCoinbase">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAQAAAgAABAAAEAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>FastGetSellPrice.cs</FileName>
+      <FileName>FastGetSellPriceCoinbase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Bistix_Core.CoinBaseData">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAEAAAAAgAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FastGetSellPrice.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACACAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>FastGetSellPriceCoinbase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Bistix_Core.CoinBaseMainData">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>FastGetSellPrice.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>FastGetSellPriceCoinbase.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Interface Name="Bistix_Core.IExchangeData">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAADQAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IExchange.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
