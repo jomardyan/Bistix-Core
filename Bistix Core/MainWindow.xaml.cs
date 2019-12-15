@@ -129,6 +129,11 @@ namespace Bistix
             exchange.GetPrice(LTCEURVAL, "LTC", "EUR");
             exchange.GetPrice(BTCUSD_VAL, "BTC", "USD");
             exchange.GetPrice(LTCUSDVAL, "LTC", "USD");
+
+
+            CBSpotPrice spot = new CBSpotPrice();
+            SporTest.Text = spot.Getspotprice("USD", "BTC");
+
         }
 
         private void TagleRefreshData_Unchecked(object sender, RoutedEventArgs e)

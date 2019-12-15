@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -12,12 +13,28 @@ namespace Bistix
     {
 
         // htts://api.coinbase.com/v2/prices/:currency_pair/spot
-	    string Getspotprice(string symbol, string currency)
+        /// <summary>
+        /// Get price for desired pair
+        /// </summary>
+        /// <param name="symbol">Flat Curency</param>
+        /// <param name="currency">Crypto Curency</param>
+        /// <returns></returns>
+	    public string Getspotprice(string symbol, string currency)
         {
-            string jsondata = new WebClient().DownloadString($"htts://api.coinbase.com/v2/prices/{currency}-{symbol}/spot");
-            SpotData data = JsonConvert.DeserializeObject<SpotData>(jsondata);
+            StringBuilder spoturl = new StringBuilder();
+            spoturl.Append($"htts://api.coinbase.com/v2/prices/");
+            spoturl.Append(currency);
+            spoturl.Append("-");
+            spoturl.Append(symbol);
+            spoturl.Append($"/spot");
 
-            return data.amount;
+            string jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/prices/{currency}-{symbol}/spot");
+            RootObject data = JsonConvert.DeserializeObject<RootObject>(jsondata);
+            Debug.WriteLine(data.data.amount); 
+
+            return data.data.amount;
+            
+            
         }
             
     }

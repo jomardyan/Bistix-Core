@@ -34,7 +34,7 @@
             <ColumnDefinition Width="631*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,1" Orientation="Horizontal">
-            <GroupBox  Header="Symbol" Height="195" VerticalAlignment="Top" Width="auto" Background="#FFFFD3D3" HorizontalAlignment="Left">
+            <GroupBox  Header="Symbol" Height="270" VerticalAlignment="Top" Width="auto" Background="#FFFFD3D3" HorizontalAlignment="Left">
                 <StackPanel>
                     <Label Content="BTC-EUR" FontSize="17" />
                     <Label Content="LTC-EUR" FontSize="17" />
@@ -42,12 +42,14 @@
                     <Label Content="LTC-USD" FontSize="17" />
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="Price" Height="195" VerticalAlignment="Top" Width="135" Margin="0" Background="#FFFBF1FF" HorizontalAlignment="Left">
+            <GroupBox Header="Price" Height="270" VerticalAlignment="Top" Width="135" Margin="0" Background="#FFFBF1FF" HorizontalAlignment="Left">
                 <StackPanel>
                     <TextBlock TextWrapping="Wrap" x:Name="BTCEUR_VAL" Text="0"     Margin="2,4,3,0" FontSize="18" HorizontalAlignment="Right" />
                     <TextBlock TextWrapping="Wrap" x:Name="LTCEURVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
                     <TextBlock TextWrapping="Wrap" x:Name="BTCUSD_VAL" Text="0"     Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
                     <TextBlock TextWrapping="Wrap" x:Name="LTCUSDVAL" Text="0"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+                    <TextBlock TextWrapping="Wrap" x:Name="SporTest" Text="def"      Margin="2,10,3,0" FontSize="18" HorizontalAlignment="Right" />
+
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="Stat" HorizontalAlignment="Left" Height="195"  VerticalAlignment="Top" Background="#FFFBF1FF" Padding="9">
