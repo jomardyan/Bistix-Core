@@ -19,10 +19,11 @@ namespace Bistix
         {
             try
             {
-                var jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/exchange-rates?currency={crypto}");
+                string jsondata = new WebClient().DownloadString($"https://api.coinbase.com/v2/exchange-rates?currency={crypto}");
                 Btcrate data = JsonConvert.DeserializeObject<Btcrate>(jsondata);
 
                 if (currency == "USD")
+
                 {
                     textblock.Text = Math.Round(data.Data.Rates.Usd, 2) + " $";
                 }

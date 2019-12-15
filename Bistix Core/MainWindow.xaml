@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bistix"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Bistix.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="687" Width="1124"
 
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -24,13 +25,13 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30*" />
-            <RowDefinition Height="365*" />
-            <RowDefinition Height="24*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="294*" />
+            <RowDefinition Height="19*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="245*" />
-            <ColumnDefinition Width="151*" />
+            <ColumnDefinition Width="485*" />
+            <ColumnDefinition Width="631*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,0,0,1" Orientation="Horizontal">
             <GroupBox  Header="Symbol" Height="195" VerticalAlignment="Top" Width="auto" Background="#FFFFD3D3" HorizontalAlignment="Left">
@@ -117,5 +118,8 @@
                 </StackPanel>
             </StatusBarItem>
         </StatusBar>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" Height="568" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="611">
+            <cefSharp:ChromiumWebBrowser x:Name="ChromiumWebBrowser"/>
+        </Grid>
     </Grid>
 </Window>

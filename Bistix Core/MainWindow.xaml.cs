@@ -20,6 +20,7 @@ namespace Bistix
         private decimal _ltcusdval = 0;
         private DispatcherTimer _dispatcherTimer = new DispatcherTimer();
 
+
         public int GetSliderValue()
         {
             return (int)IntervalSlider.Value;
@@ -27,8 +28,10 @@ namespace Bistix
 
         public MainWindow()
         {
-            InitializeComponent();
 
+
+            InitializeComponent();
+            ChromiumWebBrowser.Address = "\\BTCUSB.html";
             void TimeTimerTick(object sender, EventArgs e)
             {
                 TimeBOX.Text = DateTime.Now.ToLongTimeString();
